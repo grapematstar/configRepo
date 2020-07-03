@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: PSpringUI
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:
+
+server:
+  port: ${PORT:8080}
+
+
+---
+spring:
+  profiles: cloud
+
+uri:
+  registry: http://PSPRINGAPI
+  gateway: https://gateway-5aae6ef4-4a8b-4e7b-b1be-c2b29e291e21.apps.tanzu.mzdemo.net/api
