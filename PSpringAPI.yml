@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: PSpringAPI
+    
+management:
+  security:
+    enabled: false
+    
+server:
+  port: ${PORT:8090}
+
+
+---
+spring:
+  profiles: cloud
+
+datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  jdbc-url: ${vcap.services.mysql-server.credentials.jdbcUrl}
+  username: ${vcap.services.mysql-server.credentials.username}
+  password: ${vcap.services.mysql-server.credentials.password}
